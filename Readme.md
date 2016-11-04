@@ -1,8 +1,8 @@
 # A simple app so save and show a list of people with age
 
-
 Following TDD methodology build a full CRUD app in which you save new people, delete them, show them all and update them.
-The test file has been partialy filled and you need to recreate the functionalities in the ./controllers/people.js file.
+Most of the functionalities are mostly filled for you as an example. To make the test work and pass follow the instructions
+described in the file
 
 There are 2 conditions on the user data:
 1. Each user must have a name and it has to be unique to that user

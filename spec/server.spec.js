@@ -38,15 +38,15 @@ let agent = supertest.agent(app)
 describe("POST /people", function() {
 
     it("tests that we post one user", function(done) {
-        agent.post("/people")
-            .type('form')
-            .send({name: "pedro", age: 22}) //Request construction finished
-            .expect( function(res){
+        agent.post("/people")               // start creating your request
+            .type('form')                   // mimic the action of submittin a request with a form
+            .send({name: "pedro", age: 22}) // Request construction finished and send the information passed as an argument ex: {name: "pedro", age: 22}
+            .expect( function(res){         // Check that the responce does or does not have the information necessary to make the test pass
                 if (res.body.name !== "pedro") {
                     throw new Error("Saved Wrong Name")
                 }
             })
-            .end(function(err, res) {
+            .end(function(err, res) {          // Allways add these lines when using Supertest with Jasmine
                 if(err) return done.fail(err)
                 done()
             })
