@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/test')
+
+mongoose.connect(throw new Error("add your mongo lab account in db.js")) //ADD YOUR MONGO LAB ACCOUNT HERE!!!
 
 
