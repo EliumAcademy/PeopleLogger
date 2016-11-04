@@ -2,7 +2,7 @@
 
 Following TDD methodology build a full CRUD app in which you save new people, delete them, show them all and update them.
 Most of the functionalities are mostly filled for you as an example. To make the test work and pass follow the instructions
-described in the file
+described in the spec file
 
 There are 2 conditions on the user data:
 1. Each user must have a name and it has to be unique to that user
