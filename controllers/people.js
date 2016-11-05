@@ -39,19 +39,9 @@ router.post('/people', function(req, res){
 router.post('/people/delete', function(req, res){
     mongoose.model('people').remove({name: req.body.name}).
         exec(function (err, record) {
-            if (err) {return res.send(err)}
+            if (err) {return res.json(err)}
             res.send(`Person with name - ${req.body.name} - deleted`)
         })
 })
-
-router.post('/people/update/:id', function(req, res){
-    mongoose.model('people').
-        findOneAndUpdate({id: req.params.id}, {$set: req.body}).
-        exec(function (err, record) {
-            if (err) {return res.text(err)}
-            res.text(`Person Update with params - ${req.body}`)
-        })
-})
-
 
 module.exports = router
