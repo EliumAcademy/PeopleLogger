@@ -61,7 +61,6 @@ describe("POST /people", function() {
             .expect(function(res) {
                 if (res.body.code !== 11000) {
                     throw new Error(res.body.errmsg)
-
                 }
             })
             .end(function(err, res) {
@@ -76,7 +75,7 @@ describe("POST /people", function() {
             .expect('Content-Type', /json/)
             .type('form')
             .send() // <--- FILL IN HERE 
-            .expect((res) => { if (!res.body) { throw new Error("Saved person withouth age") }} )
+            .expect((res) => { if(res.body.message === "people validation failed") throw new Error("Age showd be required") } )
             .end(function(err, res) {
                 if(err) return done.fail(err)
                 done()
