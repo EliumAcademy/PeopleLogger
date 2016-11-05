@@ -55,11 +55,9 @@ describe("POST /people", function() {
 
 describe("GET /people", function() {
     it("Get a JSON list of people", function(done) {
-        agent.post("/people")
+        agent.get("/people")
             .expect('Content-Type', /json/)
-            .type('form')
-            .send() // <--- FILL IN HERE 
-            .expect((res) => { if(res.body.message === "people validation failed") throw new Error("Age showd be required") } )
+            .expect((res) => { }) //<--- FIll Here
             .end(function(err, res) {
                 if(err) return done.fail(err)
                 done()
