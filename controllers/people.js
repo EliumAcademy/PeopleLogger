@@ -18,14 +18,24 @@ router.get('/people', (req,res) => {
 })
 
 // check if user is signedIn before showing message; else redirect to /signIn
-router.get('/people/:id', (req,res) => {
+router.post('/people/update/:id', function(req, res){
     mongoose.model('people').
-        find({_id: req.params.id}).
-        exec(function (err, records) {
-            res.json(records)
+        findOneAndUpdate({_id: req.params.id}, {$set: req.body}).
+        exec(function (err, res) {
+            if (err) {return res.json(err)}
+            res.json("Person Updated with params - " + res.body.age )
         })
 })
 
+
+router.post('/people/update/:id', function(req, res){
+    mongoose.model('people').
+        findOneAndUpdate({_id: req.params.id}, {$set: req.body}).
+        exec(function (err, res) {
+            if (err) {return res.text(err)}
+            res.json("Person Updated with params - " + res.body.age )
+        })
+})
 
 router.post('/people', function(req, res){
     mongoose.model('people').
